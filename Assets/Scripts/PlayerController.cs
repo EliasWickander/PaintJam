@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Camera camera;
+    private PlayerCombat playerCombat;
     
     [SerializeField] private float acceleration;
     [SerializeField] private float moveSpeed;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         camera = GetComponentInChildren<Camera>();
+        playerCombat = GetComponent<PlayerCombat>();
     }
 
     // Update is called once per frame
