@@ -14,10 +14,9 @@ public class Billboard : MonoBehaviour
 
     private void Update()
     {
-        Vector3 targetPos = new Vector3(target.position.x, transform.position.y, target.position.z);
-        
-        Vector3 toTarget = (targetPos - transform.position).normalized;
+        Vector3 toTarget = (target.position - transform.position).normalized;
 
+        toTarget.y = 0;
         transform.rotation = Quaternion.LookRotation(toTarget);
     }
 }

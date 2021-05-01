@@ -75,11 +75,12 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void ModifyHealth(float health)
     {
-        currentHealth -= damage;
+        currentHealth += health;
 
-        Debug.Log("Took " + damage + " damage. Has " + currentHealth + " remaining.");
+        Debug.Log(health + " health. Has " + currentHealth + " remaining.");
+        
         if (currentHealth <= 0)
         {
             Debug.Log("died");

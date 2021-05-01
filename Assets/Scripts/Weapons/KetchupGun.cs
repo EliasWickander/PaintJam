@@ -6,7 +6,6 @@ public class KetchupGun : Weapon
 {
     public override void Shoot(Transform origin)
     {
-        Debug.Log("ketchup pew pew");
 
         if (Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, range))
         {
@@ -14,10 +13,29 @@ public class KetchupGun : Weapon
 
             if (enemy)
             {
-                enemy.TakeDamage(damage);
+                enemy.ModifyHealth(-damage);
             }
         }
+
+        CurrentAmmo -= 1;
         
         Debug.DrawRay(origin.position, origin.forward * range, Color.blue, 5);
+    }
+
+    public override void Reload()
+    {
+        int ammoDiff = Mathf.Abs(maxAmmoPerChamber - CurrentAmmo);
+
+        if (TotalAmmo >= ammoDiff)
+        {
+            CurrentAmmo += ammoDiff;
+            TotalAmmo -= ammoDiff;
+        }
+        else
+        {
+            CurrentAmmo += TotalAmmo;
+            TotalAmmo = 0;
+        }
+        
     }
 }

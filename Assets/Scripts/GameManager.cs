@@ -7,19 +7,24 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; set; }
 
-    [SerializeField] private bool cursorLocked = true;
+    public InputControls InputControls { get; set; }
+    
+    private bool cursorLocked = false;
 
     private void Awake()
     {
         Instance = this;
+        
+        InputControls = new InputControls();
+        
+        InputControls.Enable();
     }
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ToggleCursor();
-        }
+        InputControls.SystemActions systemActions = InputControls.System;
+
+        systemActions.ToggleCursor.performed += context => ToggleCursor();
     }
 
     private void ToggleCursor()
