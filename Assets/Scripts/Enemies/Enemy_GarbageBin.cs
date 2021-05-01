@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_GarbageBin : Enemy
 {
-    protected override void Attack()
+    public override void Attack()
     {
         Debug.Log("garbage attack!");
         player.ModifyHealth(-damage);

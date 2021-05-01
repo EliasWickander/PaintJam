@@ -490,14 +490,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5cf6b06da7e674b821f876023e5df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   rooms:
   - {fileID: 1469782510}
   enemiesToSpawn:
   - enemyPrefab: {fileID: 2113245980443304786, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
     credits: 3
-  - enemyPrefab: {fileID: 464292735437913634, guid: 4f4df0f6c7446fc47be56fe3f090ee64, type: 3}
-    credits: 6
 --- !u!20 &1894653460 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7452636549162799567, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}

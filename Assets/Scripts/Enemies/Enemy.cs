@@ -27,7 +27,7 @@ public abstract class Enemy : MonoBehaviour
 
     private bool canAttack = false;
 
-    protected abstract void Attack();
+    public abstract void Attack();
 
     private void Awake()
     {
@@ -77,7 +77,6 @@ public abstract class Enemy : MonoBehaviour
                 rigidBody.velocity = Vector3.zero;
                 
                 canAttack = true;
-                attackTimer = 0;
             }
         }
     }

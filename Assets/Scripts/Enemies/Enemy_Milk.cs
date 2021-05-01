@@ -11,10 +11,10 @@ public class Enemy_Milk : Enemy
     {
         this_anim = GetComponent<Animator>();
     }
-    protected override void Attack()
+    public override void Attack()
     {
         Debug.Log("milk attack!");
-        this_anim.SetTrigger("attack");
+        this_anim.SetTrigger("Attack");
         
     }
     public void Dmg_milk()
