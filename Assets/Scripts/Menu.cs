@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject optionsMenu;
+
+
+    public void Awake()
+    {
+        
+    }
+
+
+
     void Start()
     {
         
