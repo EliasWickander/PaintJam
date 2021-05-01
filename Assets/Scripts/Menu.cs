@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +13,8 @@ public class Menu : MonoBehaviour
     public bool isMainMenu;
     public bool inGame;
     public bool optionsOn;
+    private GameObject player;
+    private float startingSense;
 
 
     public void Awake()
@@ -28,7 +32,11 @@ public class Menu : MonoBehaviour
         {
             isMainMenu = false;
         }
-
+        
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
        
     }
 
@@ -85,6 +93,20 @@ public class Menu : MonoBehaviour
         // set volume to volume value
         // also set the volume slider
         Debug.Log(volume);
+    }
+
+    public void SetSense(float sense)
+    {
+        PlayerController pcScript = player.GetComponent<PlayerController>();
+        if (inGame)
+        {
+            pcScript.turnRate = sense + 50;
+        }
+        else
+        {
+
+        }
+
     }
 
     public void loadGame(int sceneToLoad)

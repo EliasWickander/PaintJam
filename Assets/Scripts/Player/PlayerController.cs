@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float acceleration;
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float turnRate;
+    [SerializeField] public float turnRate;
     [SerializeField] private float turnSmoothMod = 1;
 
     [Header("Camera")]
