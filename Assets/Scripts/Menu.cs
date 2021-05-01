@@ -36,7 +36,7 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        optionsMenu.SetActive(false);
+       // optionsMenu.SetActive(false);
 
      // if (isMainMenu)  mainMenu.SetActive(false);
 
@@ -82,12 +82,14 @@ public class Menu : MonoBehaviour
 
     public void SetVolume( float volume)
     {
-
+        // set volume to volume value
+        // also set the volume slider
+        Debug.Log(volume);
     }
 
-    public void loadGame()
+    public void loadGame(int sceneToLoad)
     {
-
+        SceneManager.LoadScene(sceneToLoad);
     }
 
 }
