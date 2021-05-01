@@ -266,6 +266,7 @@ MonoBehaviour:
   acceleration: 30
   moveSpeed: 20
   turnRate: 100
+  turnSmoothMod: 0
   clampX: 90
 --- !u!114 &9219502688535833466
 MonoBehaviour:

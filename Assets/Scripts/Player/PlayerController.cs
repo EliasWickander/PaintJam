@@ -58,9 +58,12 @@ public class PlayerController : MonoBehaviour
         movementDir = new Vector3(moveAxis.x, 0, moveAxis.y).normalized;
 
         movementDir = transform.TransformDirection(movementDir);
-        
+
+    }
+
+    private void LateUpdate()
+    {
         HandleRotation();
-        
     }
 
     private void FixedUpdate()

@@ -186,10 +186,6 @@ PrefabInstance:
       propertyPath: totalAmmoText
       value: 
       objectReference: {fileID: 1048478077}
-    - target: {fileID: 9219502688535833471, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
-      propertyPath: turnSmoothMod
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
 --- !u!1 &421075639
@@ -662,10 +658,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2113245980057620249, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2113245980443304785, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -710,29 +702,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2113245980443304786, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
-      propertyPath: damage
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113245980443304786, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
-      propertyPath: attackSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113245980443304786, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
-      propertyPath: attackDuration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113245980443304786, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
-      propertyPath: detectionRange
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2113245980443304791, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
       propertyPath: m_Name
       value: MilkEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113245980443304791, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
