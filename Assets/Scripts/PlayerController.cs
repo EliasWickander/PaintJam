@@ -41,8 +41,9 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         
-        movementDir = new Vector3(horizontal, 0, vertical);
+        movementDir = new Vector3(horizontal, 0, vertical).normalized;
         
+        Debug.Log(rigidbody.velocity.magnitude);
         movementDir = transform.TransformDirection(movementDir);
         
         HandleRotation();
@@ -65,7 +66,7 @@ public class PlayerController : MonoBehaviour
         rotX += Input.GetAxis("Mouse X") * turnRate * Time.deltaTime;
         rotY += Input.GetAxis("Mouse Y") * turnRate * Time.deltaTime;
 
-        rotY = Mathf.Clamp(rotY, -90f, 90f);      
+        rotY = Mathf.Clamp(rotY, -Mathf.Abs(clampX), Mathf.Abs(clampX));      
         
         camera.transform.localRotation = Quaternion.Euler(-rotY, 0f, 0f);
         transform.rotation = Quaternion.Euler(0f, rotX, 0f);
