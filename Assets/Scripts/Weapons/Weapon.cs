@@ -12,13 +12,19 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected int totalAmmo;
     [SerializeField] protected int maxAmmoPerChamber;
     [SerializeField] protected int maxAmmoTotal;
+
+    protected float attackRateTimer = 0;
     
     public int MaxAmmoPerChamber
     {
         get { return maxAmmoPerChamber; }
         set { maxAmmoPerChamber = value; }
     }
-    
+    public int MaxAmmoTotal
+    {
+        get { return maxAmmoTotal; }
+        set { maxAmmoTotal = value; }
+    }
     public int TotalAmmo
     {
         get { return totalAmmo; }
@@ -30,6 +36,18 @@ public abstract class Weapon : MonoBehaviour
     private void Awake()
     {
         Reload();
+    }
+
+    private void Update()
+    {
+        if (attackRateTimer > 0)
+        {
+            attackRateTimer -= Time.deltaTime;
+        }
+        else
+        {
+            attackRateTimer = 0;
+        }
     }
 
     public abstract void Shoot(Transform origin);

@@ -6,6 +6,12 @@ public class KetchupGun : Weapon
 {
     public override void Shoot(Transform origin)
     {
+        if (attackRateTimer > 0)
+        {
+            return;   
+        }
+        
+        Debug.Log("pew pew");
 
         if (Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, range))
         {
@@ -18,8 +24,12 @@ public class KetchupGun : Weapon
         }
 
         CurrentAmmo -= 1;
+        attackRateTimer = attackRate;
         
         Debug.DrawRay(origin.position, origin.forward * range, Color.blue, 5);
+
+        if (CurrentAmmo == 0)
+            Reload();
     }
 
     public override void Reload()
@@ -36,6 +46,5 @@ public class KetchupGun : Weapon
             CurrentAmmo += TotalAmmo;
             TotalAmmo = 0;
         }
-        
     }
 }

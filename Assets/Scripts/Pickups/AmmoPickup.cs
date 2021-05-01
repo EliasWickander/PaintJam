@@ -8,6 +8,13 @@ public class AmmoPickup: Pickup
     
     protected override void Activate()
     {
-        player.playerCombat.weapon.AddAmmo(ammoToGive);
+        Weapon playerWeapon = player.playerCombat.weapon;
+
+        int ammoDiff = playerWeapon.MaxAmmoTotal - playerWeapon.TotalAmmo;
+        
+        if (ammoToGive > ammoDiff)
+            playerWeapon.AddAmmo(ammoDiff);
+        else
+            playerWeapon.AddAmmo(ammoToGive);
     }
 }

@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17ae03115b501f54f9374a38e7b58bf0, type: 2}
+  - {fileID: 2100000, guid: f0ea931e438fc454297da52ad3f9d393, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,10 +106,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2113245980443304785}
   - component: {fileID: 2113245980443304784}
-  - component: {fileID: 2113245980443304786}
+  - component: {fileID: 464292735437913634}
   - component: {fileID: 6176118288172745597}
   m_Layer: 0
-  m_Name: MilkEnemy
+  m_Name: GarbageBinEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40682de85fe170b438c3e5d3bc9788f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2113245980443304786
+--- !u!114 &464292735437913634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2113245980443304791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be0bf2a54203874d9dd740837597f69, type: 3}
+  m_Script: {fileID: 11500000, guid: 2294ac9cf9a0a5d4b8e9b02194d34f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10

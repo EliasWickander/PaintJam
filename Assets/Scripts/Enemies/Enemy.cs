@@ -10,16 +10,16 @@ public abstract class Enemy : MonoBehaviour
     
     private Rigidbody rigidBody;
 
-    [SerializeField] private float maxHealth;
+    [SerializeField] private float maxHealth = 100;
     private float currentHealth;
     
-    [SerializeField] private float acceleration;
-    [SerializeField] private float deAcceleration;
-    [SerializeField] private float movementSpeed;
-    [SerializeField] private float detectionRange;
-    [SerializeField] private float attackRange;
-    [SerializeField] private float attackDuration;
-    [SerializeField] protected float damage;
+    [SerializeField] private float acceleration = 10;
+    [SerializeField] private float deAcceleration = 10;
+    [SerializeField] private float movementSpeed = 10;
+    [SerializeField] private float detectionRange = 20;
+    [SerializeField] private float attackRange = 10;
+    [SerializeField] private float attackDuration = 2;
+    [SerializeField] protected float damage = 5;
 
     private float attackTimer;
 
@@ -48,10 +48,8 @@ public abstract class Enemy : MonoBehaviour
             {
                 HandleCombat();
             }
-            else
-            {
-                HandleMovement();
-            }
+            
+            HandleMovement();
         }
     }
 
@@ -77,6 +75,7 @@ public abstract class Enemy : MonoBehaviour
             else
             {
                 rigidBody.velocity = Vector3.zero;
+                
                 canAttack = true;
                 attackTimer = 0;
             }

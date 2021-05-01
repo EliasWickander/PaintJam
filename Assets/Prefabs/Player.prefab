@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f0bfe7531cab44e9219b7208a132fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 5
+  attackRate: 0.2
   damage: 5
   range: 20
   totalAmmo: 12
