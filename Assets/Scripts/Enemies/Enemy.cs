@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     protected PlayerController player;
     
     private Rigidbody rigidBody;
-    
+
     [SerializeField] private float maxHealth;
     private float currentHealth;
     
@@ -46,15 +46,7 @@ public abstract class Enemy : MonoBehaviour
         {
             if (canAttack)
             {
-                if (attackTimer >= attackDuration)
-                {
-                    Attack();
-                    attackTimer = 0;
-                }
-                else
-                {
-                    attackTimer += Time.deltaTime;
-                }
+                HandleCombat();
             }
             else
             {
@@ -88,6 +80,19 @@ public abstract class Enemy : MonoBehaviour
                 canAttack = true;
                 attackTimer = 0;
             }
+        }
+    }
+
+    private void HandleCombat()
+    {
+        if (attackTimer >= attackDuration)
+        {
+            Attack();
+            attackTimer = 0;
+        }
+        else
+        {
+            attackTimer += Time.deltaTime;
         }
     }
     

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float turnRate;
+    [SerializeField] private float turnSmoothMod = 1;
 
     [Header("Camera")]
     [SerializeField] private float clampX = 90;
@@ -82,10 +83,13 @@ public class PlayerController : MonoBehaviour
         rotX += mouseDelta.x * turnRate * Time.deltaTime;
         rotY += mouseDelta.y * turnRate * Time.deltaTime;
 
-        rotY = Mathf.Clamp(rotY, -Mathf.Abs(clampX), Mathf.Abs(clampX));      
-        
-        camera.transform.localRotation = Quaternion.Euler(-rotY, 0f, 0f);
-        transform.rotation = Quaternion.Euler(0f, rotX, 0f);
+        rotY = Mathf.Clamp(rotY, -Mathf.Abs(clampX), Mathf.Abs(clampX));
+
+        Quaternion cameraTargetRot = Quaternion.Euler(-rotY, 0f, 0f);
+        camera.transform.localRotation = Quaternion.Slerp(camera.transform.localRotation, cameraTargetRot, (1 / turnSmoothMod) * Time.deltaTime);
+
+        Quaternion playerTargetRot = Quaternion.Euler(0f, rotX, 0f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, playerTargetRot, (1 / turnSmoothMod) * Time.deltaTime);
     }
 
     public void ModifyHealth(float health)

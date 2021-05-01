@@ -12,6 +12,7 @@ public class PlayerCombat : MonoBehaviour
     public Weapon weapon;
 
     [SerializeField] private TextMeshProUGUI ammoText;
+    [SerializeField] private TextMeshProUGUI totalAmmoText;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class PlayerCombat : MonoBehaviour
     
     private void UpdateAmmoText()
     {
-        ammoText.text = "Ammo: " + weapon.CurrentAmmo + "/" + weapon.TotalAmmo;
+        ammoText.text = "Ammo: " + weapon.CurrentAmmo + "/" + weapon.MaxAmmoPerChamber;
+        totalAmmoText.text = weapon.TotalAmmo.ToString();
     }
 }

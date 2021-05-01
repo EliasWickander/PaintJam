@@ -12,7 +12,13 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected int totalAmmo;
     [SerializeField] protected int maxAmmoPerChamber;
     [SerializeField] protected int maxAmmoTotal;
-
+    
+    public int MaxAmmoPerChamber
+    {
+        get { return maxAmmoPerChamber; }
+        set { maxAmmoPerChamber = value; }
+    }
+    
     public int TotalAmmo
     {
         get { return totalAmmo; }
