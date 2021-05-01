@@ -7,5 +7,6 @@ public class Enemy_Milk : Enemy
     protected override void Attack()
     {
         Debug.Log("milk attack!");
+        player.ModifyHealth(-damage);
     }
 }

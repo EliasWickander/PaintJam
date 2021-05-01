@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Enemy : MonoBehaviour
 {
+    protected PlayerController player;
+    
     private Rigidbody rigidBody;
     
     [SerializeField] private float maxHealth;
@@ -16,9 +18,14 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float detectionRange;
     [SerializeField] private float attackRange;
-    [SerializeField] private float damage;
+    [SerializeField] private float attackDuration;
+    [SerializeField] protected float damage;
+
+    private float attackTimer;
 
     protected Transform target;
+
+    private bool canAttack = false;
 
     protected abstract void Attack();
 
@@ -27,6 +34,8 @@ public abstract class Enemy : MonoBehaviour
         currentHealth = maxHealth;
 
         rigidBody = GetComponent<Rigidbody>();
+
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -35,23 +44,53 @@ public abstract class Enemy : MonoBehaviour
         
         if (target)
         {
-            Vector3 dirToTarget = (target.position - transform.position).normalized;
-
-            dirToTarget.y = 0;
-            
-            Vector3 targetVelocity = dirToTarget * movementSpeed;
-            
-            if((target.position - transform.position).magnitude > attackRange)
+            if (canAttack)
             {
-                rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, targetVelocity, acceleration * Time.deltaTime);   
+                if (attackTimer >= attackDuration)
+                {
+                    Attack();
+                    attackTimer = 0;
+                }
+                else
+                {
+                    attackTimer += Time.deltaTime;
+                }
             }
             else
             {
-                rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, Vector3.zero, deAcceleration * Time.deltaTime);
+                HandleMovement();
             }
         }
     }
 
+    private void HandleMovement()
+    {
+        Vector3 dirToTarget = (target.position - transform.position).normalized;
+
+        dirToTarget.y = 0;
+            
+        Vector3 targetVelocity = dirToTarget * movementSpeed;
+            
+        if((target.position - transform.position).magnitude > attackRange)
+        {
+            rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, targetVelocity, acceleration * Time.deltaTime);
+            canAttack = false;
+        }
+        else
+        {
+            if (rigidBody.velocity.magnitude > 0.2f)
+            {
+                rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, Vector3.zero, deAcceleration * Time.deltaTime);   
+            }
+            else
+            {
+                rigidBody.velocity = Vector3.zero;
+                canAttack = true;
+                attackTimer = 0;
+            }
+        }
+    }
+    
     private void HandleDetection()
     {
         Collider[] detectedColliders = Physics.OverlapSphere(transform.position, detectionRange, LayerMask.GetMask("Player"));
