@@ -14,7 +14,10 @@ public class Menu : MonoBehaviour
     public bool inGame;
     public bool optionsOn;
     private GameObject player;
-    private float startingSense;
+    private float startingSense = 50f;
+    private float startingSound = 0.5f;
+    private GameObject cam;
+    public float volumeSaved;
 
 
     public void Awake()
@@ -26,6 +29,7 @@ public class Menu : MonoBehaviour
         {
             mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
             isMainMenu = true;
+            inGame = false;
         }
 
         else
@@ -38,22 +42,19 @@ public class Menu : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
         }
        
+        
     }
 
 
 
     void Start()
     {
-       // optionsMenu.SetActive(false);
+        // optionsMenu.SetActive(false);
 
-     // if (isMainMenu)  mainMenu.SetActive(false);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // if (isMainMenu)  mainMenu.SetActive(false);
+        startingSense = 50f;
+        startingSound = 0.5f;
+        Debug.Log("StartingGaem");
 
     }
 
@@ -86,32 +87,56 @@ public class Menu : MonoBehaviour
 
     }
 
-
-
-    public void SetVolume( float volume)
+    public void Regrets()
     {
-        // set volume to volume value
-        // also set the volume slider
-        Debug.Log(volume);
+        SetSense(startingSense);
+        SetSound(startingSound);
     }
 
     public void SetSense(float sense)
     {
-        PlayerController pcScript = player.GetComponent<PlayerController>();
+       
         if (inGame)
         {
+            player = GameObject.FindGameObjectWithTag("Player");
+            PlayerController pcScript = player.GetComponent<PlayerController>();
+            
             pcScript.turnRate = sense + 50;
+            Debug.Log(sense);
+            
         }
         else
         {
-
+            startingSense = sense;
         }
 
     }
 
+    public void SetSound(float volume)
+    {
+       cam = GameObject.FindGameObjectWithTag("MainCamera");
+        
+        if (inGame)
+        {
+            volumeSaved = volume;
+            Debug.Log(volume);
+        }
+        else
+        {
+            startingSound = volume;
+        }
+
+    }
+    
     public void loadGame(int sceneToLoad)
     {
+        inGame = true;
         SceneManager.LoadScene(sceneToLoad);
+
+      /*  if (GameObject.FindGameObjectWithTag("Player")) Debug.Log("It worked woho!");
+        else Debug.Log("It did not work"); */
+       
     }
+
 
 }

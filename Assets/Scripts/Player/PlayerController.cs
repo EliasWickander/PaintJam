@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] public float turnRate;
     [SerializeField] private float turnSmoothMod = 1;
+    private GameObject optionsMenu;
 
     [Header("Camera")]
     [SerializeField] private float clampX = 90;
@@ -41,6 +42,8 @@ public class PlayerController : MonoBehaviour
         playerCombat = GetComponent<PlayerCombat>();
         currentHealth = maxHealth;
 
+        optionsMenu =  GameObject.Find("MenuManager");
+
     }
 
     private void Start()
@@ -48,6 +51,9 @@ public class PlayerController : MonoBehaviour
 
         rotX = 0;
         rotY = 0;
+
+        optionsMenu.GetComponent<Menu>().Regrets();
+
     }
     
     // Update is called once per frame

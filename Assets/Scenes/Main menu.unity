@@ -561,13 +561,13 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1633765926}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: SetVolume
+        m_MethodName: SetSound
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1141,12 +1141,24 @@ MonoBehaviour:
   m_HandleRect: {fileID: 207695911}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1633765926}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: SetSense
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1390494853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,6 +1343,7 @@ MonoBehaviour:
   isMainMenu: 0
   inGame: 0
   optionsOn: 0
+  volumeSaved: 0
 --- !u!4 &1633765927
 Transform:
   m_ObjectHideFlags: 0
