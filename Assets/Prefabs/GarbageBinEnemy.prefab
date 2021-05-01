@@ -157,7 +157,7 @@ MonoBehaviour:
   maxHealth: 10
   acceleration: 10
   deAcceleration: 10
-  movementSpeed: 10
+  movementSpeed: 2
   detectionRange: 20
   attackRange: 10
   attackDuration: 2
