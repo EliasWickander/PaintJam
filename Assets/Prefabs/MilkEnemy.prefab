@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 2113245980443304784}
   - component: {fileID: 2113245980443304786}
   - component: {fileID: 6176118288172745597}
-  - component: {fileID: 9137655762645734662}
+  - component: {fileID: 8798841432489884900}
   m_Layer: 0
   m_Name: MilkEnemy
   m_TagString: Untagged
@@ -164,6 +164,7 @@ MonoBehaviour:
   attackRange: 10
   attackDuration: 2
   damage: 5
+  this_anim: {fileID: 8798841432489884900}
 --- !u!54 &6176118288172745597
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -180,7 +181,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!95 &9137655762645734662
+--- !u!95 &8798841432489884900
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -190,7 +191,7 @@ Animator:
   m_GameObject: {fileID: 2113245980443304791}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 188e18dcf941b6e479a65409766e1f64, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9391b51727f5f5e4b93c1eb704bfbbaf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Enemy_Milk : Enemy
 {
-    Animator this_anim;
+    [SerializeField]Animator this_anim;
 
 
     private void Start()
     {
-        this_anim = GetComponent<Animator>();
+       // this_anim = GetComponent<Animator>();
     }
     public override void Attack()
     {
