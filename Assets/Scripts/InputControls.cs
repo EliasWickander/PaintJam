@@ -134,6 +134,14 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ToggleOptions"",
+                    ""type"": ""Button"",
+                    ""id"": ""565512e3-4058-4338-8a63-a4f01fa9e562"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -145,6 +153,17 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ToggleCursor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""977384eb-6d94-48ac-8c96-882629e0980b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleOptions"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -161,6 +180,7 @@ public class @InputControls : IInputActionCollection, IDisposable
         // System
         m_System = asset.FindActionMap("System", throwIfNotFound: true);
         m_System_ToggleCursor = m_System.FindAction("ToggleCursor", throwIfNotFound: true);
+        m_System_ToggleOptions = m_System.FindAction("ToggleOptions", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -260,11 +280,13 @@ public class @InputControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_System;
     private ISystemActions m_SystemActionsCallbackInterface;
     private readonly InputAction m_System_ToggleCursor;
+    private readonly InputAction m_System_ToggleOptions;
     public struct SystemActions
     {
         private @InputControls m_Wrapper;
         public SystemActions(@InputControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @ToggleCursor => m_Wrapper.m_System_ToggleCursor;
+        public InputAction @ToggleOptions => m_Wrapper.m_System_ToggleOptions;
         public InputActionMap Get() { return m_Wrapper.m_System; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -277,6 +299,9 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @ToggleCursor.started -= m_Wrapper.m_SystemActionsCallbackInterface.OnToggleCursor;
                 @ToggleCursor.performed -= m_Wrapper.m_SystemActionsCallbackInterface.OnToggleCursor;
                 @ToggleCursor.canceled -= m_Wrapper.m_SystemActionsCallbackInterface.OnToggleCursor;
+                @ToggleOptions.started -= m_Wrapper.m_SystemActionsCallbackInterface.OnToggleOptions;
+                @ToggleOptions.performed -= m_Wrapper.m_SystemActionsCallbackInterface.OnToggleOptions;
+                @ToggleOptions.canceled -= m_Wrapper.m_SystemActionsCallbackInterface.OnToggleOptions;
             }
             m_Wrapper.m_SystemActionsCallbackInterface = instance;
             if (instance != null)
@@ -284,6 +309,9 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @ToggleCursor.started += instance.OnToggleCursor;
                 @ToggleCursor.performed += instance.OnToggleCursor;
                 @ToggleCursor.canceled += instance.OnToggleCursor;
+                @ToggleOptions.started += instance.OnToggleOptions;
+                @ToggleOptions.performed += instance.OnToggleOptions;
+                @ToggleOptions.canceled += instance.OnToggleOptions;
             }
         }
     }
@@ -297,5 +325,6 @@ public class @InputControls : IInputActionCollection, IDisposable
     public interface ISystemActions
     {
         void OnToggleCursor(InputAction.CallbackContext context);
+        void OnToggleOptions(InputAction.CallbackContext context);
     }
 }

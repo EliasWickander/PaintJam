@@ -121,6 +121,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ToggleOptions",
+                    "type": "Button",
+                    "id": "565512e3-4058-4338-8a63-a4f01fa9e562",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -132,6 +140,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ToggleCursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "977384eb-6d94-48ac-8c96-882629e0980b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleOptions",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

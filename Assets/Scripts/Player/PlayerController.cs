@@ -54,6 +54,10 @@ public class PlayerController : MonoBehaviour
 
         optionsMenu.GetComponent<Menu>().Regrets();
 
+        InputControls.SystemActions systemActionsVar = GameManager.Instance.InputControls.System;
+
+        systemActionsVar.ToggleOptions.performed += context => optionsMenu.GetComponent<Menu>().OptionsToggle();
+
     }
     
     // Update is called once per frame

@@ -18,7 +18,7 @@ public class Menu : MonoBehaviour
     private float startingSound = 0.5f;
     private GameObject cam;
     public float volumeSaved;
-
+    public GameObject menuCanvas;
 
     public void Awake()
     {
@@ -41,7 +41,12 @@ public class Menu : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
-       
+
+       if (mainMenu)
+       {
+            menuCanvas = GameObject.Find("Canvas");
+            DontDestroyOnLoad(menuCanvas);
+       }
         
     }
 
@@ -49,7 +54,7 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        // optionsMenu.SetActive(false);
+         optionsMenu.SetActive(false);
 
         // if (isMainMenu)  mainMenu.SetActive(false);
         startingSense = 50f;
@@ -58,18 +63,23 @@ public class Menu : MonoBehaviour
 
     }
 
-    private void OptionsToggle()
+    public void OptionsToggle()
     {
         if (inGame)
         {
+            //Close the menu
             if (optionsOn)
             {
                 Cursor.lockState = CursorLockMode.Locked;
+                optionsMenu.SetActive(false);
+                Time.timeScale = 1;
             }
+            //Open the menu
             else
             {
                 Cursor.lockState = CursorLockMode.None;
-
+                optionsMenu.SetActive(true);
+                Time.timeScale = 0;
             }
         }
     
@@ -77,11 +87,14 @@ public class Menu : MonoBehaviour
         {
             optionsMenu.SetActive(true);
             optionsOn = true;
+
+            if (!inGame) mainMenu.SetActive(false);
         }
         else
         {
             optionsMenu.SetActive(false);
             optionsOn = false;
+            if (!inGame) mainMenu.SetActive(true);
         }
        
 
@@ -130,6 +143,10 @@ public class Menu : MonoBehaviour
     
     public void loadGame(int sceneToLoad)
     {
+        optionsMenu.SetActive(false);
+        mainMenu.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
         inGame = true;
         SceneManager.LoadScene(sceneToLoad);
 
