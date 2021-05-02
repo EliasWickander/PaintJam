@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class KetchupGun : Weapon
@@ -17,7 +18,14 @@ public class KetchupGun : Weapon
 
     public void ApplyShot()
     {
-        if (Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, range))
+        Vector3 posOffset = Vector3.up * 0.5f;
+        Vector3 dirOffset = Vector3.up * 0.1f;
+        
+        Vector3 socketPos = origin.position + posOffset;
+        Vector3 dir = origin.forward + dirOffset;
+        dir.Normalize();
+
+        if (Physics.Raycast(socketPos, dir, out RaycastHit hit, range))
         {
             Enemy enemy = hit.collider.GetComponentInParent<Enemy>();
 
@@ -30,8 +38,6 @@ public class KetchupGun : Weapon
         CurrentAmmo -= 1;
         attackRateTimer = attackRate;
         
-        Debug.DrawRay(origin.position, origin.forward * range, Color.blue, 5);
-
         if (CurrentAmmo == 0)
             Reload();
     }

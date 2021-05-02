@@ -116,18 +116,18 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
         mouseDelta.Normalize();
-        
-        rotX += mouseDelta.x * turnRate * Time.deltaTime;
+
+        rotX = mouseDelta.x * turnRate * Time.deltaTime;
         rotY += mouseDelta.y * turnRate * Time.deltaTime;
 
         rotY = Mathf.Clamp(rotY, -Mathf.Abs(clampX), Mathf.Abs(clampX));
 
         Quaternion cameraTargetRot = Quaternion.Euler(-rotY, 0f, 0f);
 
-        camera.transform.localRotation = Quaternion.Slerp(camera.transform.localRotation, cameraTargetRot, 1);
+        camera.transform.localRotation = Quaternion.Slerp(camera.transform.localRotation, cameraTargetRot, (1 / turnSmoothMod) * Time.deltaTime);
 
         Quaternion playerTargetRot = Quaternion.Euler(0f, rotX, 0f);
-        transform.rotation = Quaternion.Slerp(transform.rotation, playerTargetRot, 1);
+        rigidbody.MoveRotation(Quaternion.Slerp(rigidbody.rotation, playerTargetRot, (1 / turnSmoothMod) * Time.deltaTime));
     }
 
     public void ModifyHealth(float health)
@@ -157,6 +157,8 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0f;
             AS.clip = Die;
             AS.Play();
+            
+            GameManager.Instance.InputControls.Disable();
         }
         else if (CurrentHealth >= maxHealth)
         {

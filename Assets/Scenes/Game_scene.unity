@@ -2253,6 +2253,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5454220247505824478, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451182002006950885, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854118952513518160, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
 --- !u!1 &2144469225
@@ -16814,6 +16826,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 345575372}
     - target: {fileID: 9219502688535833466, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
+      propertyPath: startGun
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219502688535833466, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
       propertyPath: ketchupGun
       value: 
       objectReference: {fileID: 760267173}
@@ -16831,7 +16847,7 @@ PrefabInstance:
       objectReference: {fileID: 1786569465}
     - target: {fileID: 9219502688535833471, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
       propertyPath: turnRate
-      value: 200
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 9219502688535833471, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
       propertyPath: Playericon

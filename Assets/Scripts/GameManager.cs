@@ -24,14 +24,14 @@ public class GameManager : MonoBehaviour
         InputControls = new InputControls();
         
         InputControls.Enable();
-        
+
         ToggleCursor();
     }
 
     private void Start()
     {
         InputControls.SystemActions systemActions = InputControls.System;
-
+        
         systemActions.ToggleCursor.performed += context => ToggleCursor();
 
     }

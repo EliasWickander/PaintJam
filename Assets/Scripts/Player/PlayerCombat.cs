@@ -44,7 +44,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (CurrentWeapon.CurrentAmmo > 0)
             {
-                CurrentWeapon.Shoot(playerController.camera.transform);
+                CurrentWeapon.Shoot(Camera.main.transform);
             }
         };
         

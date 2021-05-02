@@ -46,6 +46,9 @@ public class SpawnDirector : MonoBehaviour
 
     private void Update()
     {
+        if (activeRoom == null)
+            return;
+        
         if (activeRoom.waveQueue.Count <= 0)
         {
             if (waveActive)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GrenadeLauncher : Weapon
@@ -23,12 +24,19 @@ public class GrenadeLauncher : Weapon
 
     public void LaunchGrenade()
     {
-        GameObject launchedGrenade = Instantiate(grenade, origin.position + origin.forward, origin.rotation);
+        Vector3 posOffset = Vector3.up * 0.5f;
+        Vector3 dirOffset = Vector3.up * 0.1f;
+        
+        Vector3 socketPos = origin.position + posOffset;
+        Vector3 dir = origin.forward + dirOffset;
+        dir.Normalize();
+        
+        GameObject launchedGrenade = Instantiate(grenade, socketPos + origin.forward, origin.rotation);
 
         Rigidbody rigidbody = launchedGrenade.GetComponent<Rigidbody>();
         
         rigidbody.AddForce(origin.up * upPower, ForceMode.Impulse);
-        rigidbody.AddForce(origin.forward * launchPower, ForceMode.Impulse);
+        rigidbody.AddForce(dir * launchPower, ForceMode.Impulse);
         CurrentAmmo -= 1;
         attackRateTimer = attackRate;
 
