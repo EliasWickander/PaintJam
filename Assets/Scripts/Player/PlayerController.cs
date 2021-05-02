@@ -52,13 +52,13 @@ public class PlayerController : MonoBehaviour
         rotX = 0;
         rotY = 0;
 
-        if (GameObject.Find("MenuManager")) optionsMenu.GetComponent<Menu>().Regrets();
-
-
-        InputControls.SystemActions systemActionsVar = GameManager.Instance.InputControls.System;
-        if (GameObject.Find("MenuManager")) systemActionsVar.ToggleOptions.performed += context => optionsMenu.GetComponent<Menu>().OptionsToggle();
-
-
+        if (GameObject.Find("MenuManager")) optionsMenu.GetComponent<Menu>().Regrets();
+
+
+        InputControls.SystemActions systemActionsVar = GameManager.Instance.InputControls.System;
+        if (GameObject.Find("MenuManager")) systemActionsVar.ToggleOptions.performed += context => optionsMenu.GetComponent<Menu>().OptionsToggle();
+
+
     }
     
     // Update is called once per frame
