@@ -47,6 +47,9 @@ public class SpawnDirector : MonoBehaviour
     {
         if (!active)
             return;
+
+        if (room.waveQueue.Count <= 0)
+            return;
         
         activeWave = room.waveQueue.Dequeue();
 

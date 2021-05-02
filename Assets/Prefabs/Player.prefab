@@ -267,6 +267,9 @@ MonoBehaviour:
   turnRate: 200
   turnSmoothMod: 0
   clampX: 90
+  Hurt: {fileID: 8300000, guid: cb103ee2cd0c3dd43a80df004b5abfc8, type: 3}
+  Die: {fileID: 8300000, guid: feef47b8840949f428f3f8fc001a07fc, type: 3}
+  Playericon: {fileID: 0}
 --- !u!114 &9219502688535833466
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
         rotY = Mathf.Clamp(rotY, -Mathf.Abs(clampX), Mathf.Abs(clampX));
 
         Quaternion cameraTargetRot = Quaternion.Euler(-rotY, 0f, 0f);
+
         camera.transform.localRotation = Quaternion.Slerp(camera.transform.localRotation, cameraTargetRot, (1 / turnSmoothMod) * Time.deltaTime);
 
         Quaternion playerTargetRot = Quaternion.Euler(0f, rotX, 0f);
@@ -128,12 +129,12 @@ public class PlayerController : MonoBehaviour
             AS.Play();
         }
         CurrentHealth += health;
-        if (currentHealth <= maxHealth/2)
+        if (CurrentHealth <= maxHealth/2)
         {
             Playericon.SetBool("low_hp", true);
             
         }
-        if (currentHealth >= maxHealth/2)
+        if (CurrentHealth >= maxHealth/2)
         {
 
             Playericon.SetBool("low_hp", false);
