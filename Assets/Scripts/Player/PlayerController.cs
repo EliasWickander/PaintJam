@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public PlayerCombat playerCombat;
     
-    [SerializeField] private float maxHealth;
-    private float currentHealth;
-    
+    public float maxHealth;
+    public float CurrentHealth { get; set; }
+
     [Header("Movement")]
     [SerializeField] private float acceleration;
     [SerializeField] private float moveSpeed;
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         camera = GetComponentInChildren<Camera>();
 
         playerCombat = GetComponent<PlayerCombat>();
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
         AS = GetComponent<AudioSource>();
 
         optionsMenu =  GameObject.Find("MenuManager");
@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
         rotY = Mathf.Clamp(rotY, -Mathf.Abs(clampX), Mathf.Abs(clampX));
 
         Quaternion cameraTargetRot = Quaternion.Euler(-rotY, 0f, 0f);
+
         camera.transform.localRotation = Quaternion.Slerp(camera.transform.localRotation, cameraTargetRot, (1 / turnSmoothMod) * Time.deltaTime);
 
         Quaternion playerTargetRot = Quaternion.Euler(0f, rotX, 0f);
@@ -127,26 +128,28 @@ public class PlayerController : MonoBehaviour
             AS.clip = Hurt;
             AS.Play();
         }
-        currentHealth += health;
-        if (currentHealth <= maxHealth/2)
+        CurrentHealth += health;
+        if (CurrentHealth <= maxHealth/2)
         {
             Playericon.SetBool("low_hp", true);
             
         }
-        if (currentHealth >= maxHealth/2)
+        if (CurrentHealth >= maxHealth/2)
         {
 
             Playericon.SetBool("low_hp", false);
         }
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             Debug.Log("Player died");
             AS.clip = Die;
             AS.Play();
         }
-        else if (currentHealth >= maxHealth)
+        else if (CurrentHealth >= maxHealth)
         {
-            currentHealth = maxHealth;
+            CurrentHealth = maxHealth;
         }
+        
+        Debug.Log("Got " + health + " health. Now has " + CurrentHealth + " Health.");
     }
 }

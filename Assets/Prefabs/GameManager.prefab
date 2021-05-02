@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7779607641650201017}
   - component: {fileID: 7779607641650201016}
+  - component: {fileID: 2046083022}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -43,4 +44,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e052a6a708e34441a70fdf21b117128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorLocked: 1
+--- !u!114 &2046083022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779607641650201019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5cf6b06da7e674b821f876023e5df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  rooms:
+  - {fileID: 0}
+  enemiesToSpawn:
+  - enemyPrefab: {fileID: 2113245980443304786, guid: fb57636fdb42a3f40a9741b02d0316b7, type: 3}
+    credits: 3
+  - enemyPrefab: {fileID: 464292735437913634, guid: 4f4df0f6c7446fc47be56fe3f090ee64, type: 3}
+    credits: 5
+  activeWave:
+    enemies: []
+    spawnCredits: 10
+    spawnDuration: 5

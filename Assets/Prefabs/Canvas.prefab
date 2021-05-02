@@ -1212,6 +1212,7 @@ MonoBehaviour:
   totalAmmo: 12
   maxAmmoPerChamber: 6
   maxAmmoTotal: 99
+  impactRadius: 5
 --- !u!1 &8313117970984777806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4836666411060844888
 Transform:
   m_ObjectHideFlags: 0
