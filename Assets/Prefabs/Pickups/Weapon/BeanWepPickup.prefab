@@ -10,14 +10,14 @@ PrefabInstance:
     - target: {fileID: 256197889490662833, guid: 81837113969939c41bb3d78cc7f8f297, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3c2bf5ddca93d594d853709c40e16422, type: 3}
+      objectReference: {fileID: 21300000, guid: f34246c643661564ba309c1aef5bfa8f, type: 3}
     - target: {fileID: 256197889490662834, guid: 81837113969939c41bb3d78cc7f8f297, type: 3}
       propertyPath: m_Name
       value: BeanAmmoT
       objectReference: {fileID: 0}
     - target: {fileID: 7411136186096774497, guid: 81837113969939c41bb3d78cc7f8f297, type: 3}
       propertyPath: m_Name
-      value: BeanPickup
+      value: BeanWepPickup
       objectReference: {fileID: 0}
     - target: {fileID: 7411136186096774508, guid: 81837113969939c41bb3d78cc7f8f297, type: 3}
       propertyPath: m_RootOrder
