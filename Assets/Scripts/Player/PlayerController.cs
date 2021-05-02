@@ -120,10 +120,10 @@ public class PlayerController : MonoBehaviour
 
         Quaternion cameraTargetRot = Quaternion.Euler(-rotY, 0f, 0f);
 
-        camera.transform.localRotation = Quaternion.Slerp(camera.transform.localRotation, cameraTargetRot, (1 / turnSmoothMod) * Time.deltaTime);
+        camera.transform.localRotation = Quaternion.Slerp(camera.transform.localRotation, cameraTargetRot, 1);
 
         Quaternion playerTargetRot = Quaternion.Euler(0f, rotX, 0f);
-        transform.rotation = Quaternion.Slerp(transform.rotation, playerTargetRot, (1 / turnSmoothMod) * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, playerTargetRot, 1);
     }
 
     public void ModifyHealth(float health)
