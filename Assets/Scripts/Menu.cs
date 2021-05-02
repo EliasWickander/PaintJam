@@ -25,7 +25,7 @@ public class Menu : MonoBehaviour
         optionsMenu = GameObject.FindGameObjectWithTag("Options");
         DontDestroyOnLoad(this);
 
-        if ( mainMenu = GameObject.FindGameObjectWithTag("MainMenu"))
+        if (GameObject.FindGameObjectWithTag("MainMenu"))
         {
             mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
             isMainMenu = true;
@@ -141,7 +141,7 @@ public class Menu : MonoBehaviour
 
     }
     
-    public void loadGame(int sceneToLoad)
+    public void LoadGame(int sceneToLoad)
     {
         optionsMenu.SetActive(false);
         mainMenu.SetActive(false);
