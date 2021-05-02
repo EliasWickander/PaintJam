@@ -11,7 +11,7 @@ public abstract class Enemy : MonoBehaviour
     private Rigidbody rigidBody;
 
     [SerializeField] private float maxHealth = 100;
-    private float currentHealth;
+    [SerializeField] protected float currentHealth;
     
     [SerializeField] private float acceleration = 10;
     [SerializeField] private float deAcceleration = 10;
@@ -21,14 +21,19 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private float attackDuration = 2;
     [SerializeField] protected float damage = 5;
 
+    
+
     private float attackTimer;
 
     protected Transform target;
 
     private bool canAttack = false;
 
+    //abstarct voids
     public abstract void Attack();
-
+    public abstract void walksound();
+    public abstract void attacksound();
+    public abstract void Diedsfx();
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -121,12 +126,14 @@ public abstract class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("enemy died");
+            Diedsfx();
 
             if (SpawnDirector.Instance)
                 SpawnDirector.Instance.activeWave.UnitsAlive--;
             
             Destroy(gameObject);
         }
+
     }
     
     private void OnDrawGizmos()

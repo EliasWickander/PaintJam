@@ -28,6 +28,9 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ammoText;
     [SerializeField] private TextMeshProUGUI totalAmmoText;
 
+
+    
+
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
