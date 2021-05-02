@@ -117,17 +117,13 @@ public class PlayerController : MonoBehaviour
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
         mouseDelta.Normalize();
 
-        rotX = mouseDelta.x * turnRate * Time.deltaTime;
+        rotX += mouseDelta.x * turnRate * Time.deltaTime;
         rotY += mouseDelta.y * turnRate * Time.deltaTime;
 
         rotY = Mathf.Clamp(rotY, -Mathf.Abs(clampX), Mathf.Abs(clampX));
-
-        Quaternion cameraTargetRot = Quaternion.Euler(-rotY, 0f, 0f);
-
-        camera.transform.localRotation = Quaternion.Slerp(camera.transform.localRotation, cameraTargetRot, (1 / turnSmoothMod) * Time.deltaTime);
-
-        Quaternion playerTargetRot = Quaternion.Euler(0f, rotX, 0f);
-        rigidbody.MoveRotation(Quaternion.Slerp(rigidbody.rotation, playerTargetRot, (1 / turnSmoothMod) * Time.deltaTime));
+        
+        camera.transform.localEulerAngles = new Vector3(-rotY, 0, 0);
+        transform.localEulerAngles = new Vector3(0, rotX, 0);
     }
 
     public void ModifyHealth(float health)
