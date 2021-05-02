@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float turnRate;
     [SerializeField] private float turnSmoothMod = 1;
     private GameObject optionsMenu;
+    public GameObject losecanvas;
 
     [Header("Camera")]
     [SerializeField] private float clampX = 90;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip Hurt, Die;
     [SerializeField] Animator Playericon;
 
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -53,6 +55,8 @@ public class PlayerController : MonoBehaviour
         AS = GetComponent<AudioSource>();
 
         optionsMenu =  GameObject.Find("MenuManager");
+            
+        Time.timeScale = 1f;
 
     }
 
@@ -147,6 +151,10 @@ public class PlayerController : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             Debug.Log("Player died");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            losecanvas.SetActive(true);
+            Time.timeScale = 0f;
             AS.clip = Die;
             AS.Play();
         }
