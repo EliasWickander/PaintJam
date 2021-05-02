@@ -8,9 +8,13 @@ public abstract class Pickup : MonoBehaviour
     protected PlayerController player;
     [SerializeField] private float radius = 2;
 
+    AudioSource AS;
+
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
+        AS = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -20,7 +24,11 @@ public abstract class Pickup : MonoBehaviour
         if (colliderHits.Length > 0)
         {
             if(Activate())
+            {
+                AS.Play();
                 Destroy(gameObject);
+            }
+                
         }
     }
 
