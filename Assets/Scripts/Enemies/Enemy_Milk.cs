@@ -5,11 +5,12 @@ using UnityEngine;
 public class Enemy_Milk : Enemy
 {
     [SerializeField]Animator this_anim;
-
-
+    AudioSource AU;
+    public AudioClip walk, attack, die;
     private void Start()
     {
-       // this_anim = GetComponent<Animator>();
+        // this_anim = GetComponent<Animator>();
+        AU = GetComponent<AudioSource>();
     }
     public override void Attack()
     {
@@ -19,5 +20,21 @@ public class Enemy_Milk : Enemy
     public void Dmg_milk()
     {
         player.ModifyHealth(-damage);
+    }
+    public override void walksound()
+    {
+        AU.clip = walk;
+        AU.Play();
+    }
+    public override void attacksound()
+    {
+        AU.clip = attack;
+        AU.Play();
+    }
+
+    public override void Diedsfx()
+    {
+        AU.clip = die;
+        AU.Play();
     }
 }
