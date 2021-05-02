@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Menu : MonoBehaviour
     private GameObject cam;
     public float volumeSaved;
     public GameObject menuCanvas;
+
+    public Slider sensSlider;
 
     public void Awake()
     {
@@ -55,7 +58,7 @@ public class Menu : MonoBehaviour
         optionsMenu.SetActive(false);
 
         // if (isMainMenu)  mainMenu.SetActive(false);
-        startingSense = 50f;
+        startingSense = sensSlider.value;
         startingSound = 0.5f;
         Debug.Log("StartingGaem");
 
@@ -108,14 +111,12 @@ public class Menu : MonoBehaviour
 
     public void SetSense(float sense)
     {
-
         if (inGame)
         {
             player = GameObject.FindGameObjectWithTag("Player");
             PlayerController pcScript = player.GetComponent<PlayerController>();
 
-            pcScript.turnRate = sense + 150;
-            Debug.Log(sense);
+            pcScript.turnRate = sense;
 
         }
         else

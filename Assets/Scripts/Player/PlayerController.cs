@@ -66,7 +66,10 @@ public class PlayerController : MonoBehaviour
         rotX = 0;
         rotY = 0;
 
-        if (GameObject.Find("MenuManager")) optionsMenu.GetComponent<Menu>().Regrets();
+        if (GameObject.Find("MenuManager"))
+        {
+            optionsMenu.GetComponent<Menu>().Regrets();
+        }
 
 
 
@@ -122,8 +125,8 @@ public class PlayerController : MonoBehaviour
 
         rotY = Mathf.Clamp(rotY, -Mathf.Abs(clampX), Mathf.Abs(clampX));
         
-        camera.transform.localEulerAngles = new Vector3(-rotY, 0, 0);
-        transform.localEulerAngles = new Vector3(0, rotX, 0);
+        camera.transform.localRotation = Quaternion.Slerp(camera.transform.localRotation, Quaternion.Euler(new Vector3(-rotY, 0, 0)), (1 / turnSmoothMod) * Time.deltaTime);
+        rigidbody.MoveRotation(Quaternion.Slerp(rigidbody.rotation, Quaternion.Euler(new Vector3(0, rotX, 0)), (1 / turnSmoothMod) * Time.deltaTime)) ;
     }
 
     public void ModifyHealth(float health)

@@ -266,8 +266,10 @@ MonoBehaviour:
   acceleration: 30
   moveSpeed: 20
   turnRate: 200
-  turnSmoothMod: 0
+  turnSmoothMod: 0.05
+  losecanvas: {fileID: 0}
   clampX: 90
+  healthText: {fileID: 0}
   Hurt: {fileID: 8300000, guid: cb103ee2cd0c3dd43a80df004b5abfc8, type: 3}
   Die: {fileID: 8300000, guid: feef47b8840949f428f3f8fc001a07fc, type: 3}
   Playericon: {fileID: 0}
