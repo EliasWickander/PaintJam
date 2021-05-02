@@ -21,6 +21,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private float attackDuration = 2;
     [SerializeField] protected float damage = 5;
 
+    [SerializeField] protected int score = 5;
+
     
 
     private float attackTimer;
@@ -130,7 +132,8 @@ public abstract class Enemy : MonoBehaviour
 
             if (SpawnDirector.Instance)
                 SpawnDirector.Instance.activeWave.UnitsAlive--;
-            
+
+            GameManager.Instance.Score += score;
             Destroy(gameObject);
         }
 

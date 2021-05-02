@@ -185,6 +185,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4945751103655283566, guid: 20efd8a226ffa0142997fdbbe87c65db, type: 3}
   m_PrefabInstance: {fileID: 160703146}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &264882683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1193737101417830870, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+  m_PrefabInstance: {fileID: 2047481841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &307786550
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,11 +865,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &896049376 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1987148215045505826, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+  m_PrefabInstance: {fileID: 2047481841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &953012013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 899555722, guid: 1d6705a88c7d7bd4fa1b968874365ae3, type: 3}
   m_PrefabInstance: {fileID: 3444750740185037124}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1058830045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3962385328218435640, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+  m_PrefabInstance: {fileID: 2047481841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1095381142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,6 +1904,14 @@ PrefabInstance:
       propertyPath: enemiesToSpawn.Array.data[1].credits
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7779607641650201016, guid: affc83bf4ed2ce745820c2b45691a0c2, type: 3}
+      propertyPath: waveText
+      value: 
+      objectReference: {fileID: 264882683}
+    - target: {fileID: 7779607641650201016, guid: affc83bf4ed2ce745820c2b45691a0c2, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1058830045}
     - target: {fileID: 7779607641650201017, guid: affc83bf4ed2ce745820c2b45691a0c2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2159,6 +2200,12 @@ PrefabInstance:
     - target: {fileID: 1786569465, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
       propertyPath: damage
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193737101417830870, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+      propertyPath: m_text
+      value: 'wave 1
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 4086356009218878512, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
       propertyPath: m_Pivot.x
@@ -4754,6 +4801,14 @@ PrefabInstance:
     - target: {fileID: 647574045, guid: 1d6705a88c7d7bd4fa1b968874365ae3, type: 3}
       propertyPath: m_LocalPosition.z
       value: -2.3899999
+      objectReference: {fileID: 0}
+    - target: {fileID: 948500749, guid: 1d6705a88c7d7bd4fa1b968874365ae3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.376
+      objectReference: {fileID: 0}
+    - target: {fileID: 948500749, guid: 1d6705a88c7d7bd4fa1b968874365ae3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.004
       objectReference: {fileID: 0}
     - target: {fileID: 1176369465, guid: 1d6705a88c7d7bd4fa1b968874365ae3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16840,6 +16895,10 @@ PrefabInstance:
       propertyPath: Playericon
       value: 
       objectReference: {fileID: 383764873}
+    - target: {fileID: 9219502688535833471, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 896049376}
     - target: {fileID: 9219502688535833471, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
       propertyPath: turnSmoothMod
       value: 0

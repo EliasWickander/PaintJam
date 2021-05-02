@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     private bool cursorLocked = false;
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI waveText;
     public int Score { get; set; }
+    public int CurrentWave { get; set; }
 
     private void Awake()
     {
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         scoreText.text = Score.ToString();
+        waveText.text = "Wave " + CurrentWave;
     }
 
     private void ToggleCursor()

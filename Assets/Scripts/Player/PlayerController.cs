@@ -155,6 +155,5 @@ public class PlayerController : MonoBehaviour
             CurrentHealth = maxHealth;
         }
         
-        Debug.Log("Got " + health + " health. Now has " + CurrentHealth + " Health.");
     }
 }

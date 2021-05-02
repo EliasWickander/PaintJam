@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -43,6 +44,8 @@ public class Room : MonoBehaviour
     public List<Transform> pickupsSpawnPoints = new List<Transform>();
     
     public List<PickupSpawnData> pickupsToSpawn = new List<PickupSpawnData>();
+    
+    public List<Pickup> activePickups = new List<Pickup>();
 
     private void Awake()
     {
@@ -56,25 +59,36 @@ public class Room : MonoBehaviour
         
         for (int i = 0; i < pickupSpawnPointContainer.childCount; i++)
             pickupsSpawnPoints.Add(pickupSpawnPointContainer.GetChild(i));
+    }
 
+    public void SpawnPickups()
+    {
+        foreach (Pickup pickup in activePickups)
+        {
+            activePickups.Remove(pickup);
+            Destroy(pickup.gameObject);
+        }
+
+        List<Transform> availableSpawnPoints = pickupsSpawnPoints.ToList();
+        
         foreach (PickupSpawnData pickup in pickupsToSpawn)
         {
             for (int j = 0; j < pickup.amount; j++)
             {
-                if (pickupsSpawnPoints.Count <= 0)
+                if (availableSpawnPoints.Count <= 0)
                 {
                     Debug.LogError("Not enough spawnpoints for all the selected pickups. Ignoring.");
                     return;
                 }
                 
-                Transform randSpawnPoint = pickupsSpawnPoints[Random.Range(0, pickupsSpawnPoints.Count)];
+                Transform randSpawnPoint = availableSpawnPoints[Random.Range(0, availableSpawnPoints.Count)];
                 Instantiate(pickup.pickup, randSpawnPoint.position, quaternion.identity);
-                pickupsSpawnPoints.Remove(randSpawnPoint);
+                availableSpawnPoints.Remove(randSpawnPoint);
                 
             }
         }
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))

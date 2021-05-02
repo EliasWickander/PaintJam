@@ -69,6 +69,9 @@ public class SpawnDirector : MonoBehaviour
         activeWave = room.waveQueue.Dequeue();
         activeRoom = room;
 
+        GameManager.Instance.CurrentWave++;
+        
+        room.SpawnPickups();
         if (activeWave.enemies.Count <= 0)
             throw new Exception("Wave has no enemies. Aborting.");
 
