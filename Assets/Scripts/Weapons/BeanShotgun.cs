@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KetchupGun : Weapon
+public class BeanShotgun : Weapon
 {
     public override void Shoot(Transform origin)
     {
@@ -12,13 +12,13 @@ public class KetchupGun : Weapon
             return;   
         }
         
-        Debug.Log("pew pew");
-        
         animator.SetTrigger("Fire");
     }
 
     public void ApplyShot()
     {
+        Debug.Log("pew pew");
+
         if (Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, range))
         {
             Enemy enemy = hit.collider.GetComponentInParent<Enemy>();

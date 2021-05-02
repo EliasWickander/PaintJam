@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KetchupGun : Weapon
+public class GrenadeLauncher : Weapon
 {
+    [SerializeField] private GameObject grenade;
+    [SerializeField] private float launchPower;
+    [SerializeField] private float upPower;
+    
     public override void Shoot(Transform origin)
     {
         this.origin = origin;
@@ -17,22 +21,16 @@ public class KetchupGun : Weapon
         animator.SetTrigger("Fire");
     }
 
-    public void ApplyShot()
+    public void LaunchGrenade()
     {
-        if (Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, range))
-        {
-            Enemy enemy = hit.collider.GetComponentInParent<Enemy>();
+        GameObject launchedGrenade = Instantiate(grenade, origin.position + origin.forward, origin.rotation);
 
-            if (enemy)
-            {
-                enemy.ModifyHealth(-damage);
-            }
-        }
-
+        Rigidbody rigidbody = launchedGrenade.GetComponent<Rigidbody>();
+        
+        rigidbody.AddForce(origin.up * upPower, ForceMode.Impulse);
+        rigidbody.AddForce(origin.forward * launchPower, ForceMode.Impulse);
         CurrentAmmo -= 1;
         attackRateTimer = attackRate;
-        
-        Debug.DrawRay(origin.position, origin.forward * range, Color.blue, 5);
 
         if (CurrentAmmo == 0)
             Reload();

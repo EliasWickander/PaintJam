@@ -6,15 +6,23 @@ using UnityEngine.Serialization;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] protected float attackRate;
-    [SerializeField] protected float damage;
-    [SerializeField] protected float range;
-    [SerializeField] protected int totalAmmo;
-    [SerializeField] protected int maxAmmoPerChamber;
-    [SerializeField] protected int maxAmmoTotal;
+    protected Animator animator;
+    [SerializeField] protected float attackRate = 0.2f;
+    [SerializeField] protected float damage = 5;
+    [SerializeField] protected float range = 20;
+    [SerializeField] protected int totalAmmo = 12;
+    [SerializeField] protected int maxAmmoPerChamber = 6;
+    [SerializeField] protected int maxAmmoTotal = 99;
+
+    protected Transform origin;
 
     protected float attackRateTimer = 0;
     
+    public float Damage
+    {
+        get { return damage; }
+        set { damage = value; }
+    }
     public int MaxAmmoPerChamber
     {
         get { return maxAmmoPerChamber; }
@@ -35,6 +43,7 @@ public abstract class Weapon : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         Reload();
     }
 

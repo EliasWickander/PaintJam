@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2113245980057620251}
   - component: {fileID: 2113245980057620250}
   - component: {fileID: 2113245980057620249}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 464292735437913634}
   - component: {fileID: 6176118288172745597}
   - component: {fileID: 538598180858037251}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GarbageBinEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 7927052488277839655}
   - component: {fileID: 6588918610501581792}
   - component: {fileID: 2998079489556910111}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bin spritesheet_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
