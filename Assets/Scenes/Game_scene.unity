@@ -16889,7 +16889,7 @@ PrefabInstance:
       objectReference: {fileID: 1786569465}
     - target: {fileID: 9219502688535833471, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
       propertyPath: turnRate
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9219502688535833471, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
       propertyPath: Playericon
