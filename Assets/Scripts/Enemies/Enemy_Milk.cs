@@ -13,7 +13,6 @@ public class Enemy_Milk : Enemy
     }
     public override void Attack()
     {
-        Debug.Log("milk attack!");
         this_anim.SetTrigger("Attack");
         
     }

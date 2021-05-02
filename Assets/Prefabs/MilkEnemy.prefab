@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2113245980057620251}
   - component: {fileID: 2113245980057620250}
   - component: {fileID: 2113245980057620249}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 2113245980443304786}
   - component: {fileID: 6176118288172745597}
   - component: {fileID: 8798841432489884900}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MilkEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 3288254803591391818}
   - component: {fileID: 3439049815539121584}
   - component: {fileID: 7604627486308020150}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spritesheet mad milk_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

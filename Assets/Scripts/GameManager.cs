@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
         InputControls.SystemActions systemActions = InputControls.System;
 
         systemActions.ToggleCursor.performed += context => ToggleCursor();
+        
+        ToggleCursor();
     }
 
     private void ToggleCursor()
