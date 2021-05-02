@@ -6,9 +6,12 @@ public class AmmoPickup: Pickup
 {
     [SerializeField] private WeaponType weaponType;
     [SerializeField] private int ammoToGive = 6;
+
+    
     
     protected override bool Activate()
     {
+
         Weapon weapon = player.playerCombat.GetWeaponFromType(weaponType);
         
         Weapon playerWeapon = player.playerCombat.CurrentWeapon;
