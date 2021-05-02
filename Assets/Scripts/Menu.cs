@@ -145,6 +145,8 @@ public class Menu : MonoBehaviour
     {
         optionsMenu.SetActive(false);
         mainMenu.SetActive(false);
+        GameObject menuBG = GameObject.Find("background");
+        menuBG.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         inGame = true;
