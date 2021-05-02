@@ -1655,6 +1655,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4945751103655283566, guid: 20efd8a226ffa0142997fdbbe87c65db, type: 3}
   m_PrefabInstance: {fileID: 1515532053}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1681444524 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6233103660060594246, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+  m_PrefabInstance: {fileID: 2047481841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1747282570 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1048478077, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
@@ -1873,6 +1884,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1058830045}
+    - target: {fileID: 7779607641650201016, guid: affc83bf4ed2ce745820c2b45691a0c2, type: 3}
+      propertyPath: scoreText2
+      value: 
+      objectReference: {fileID: 1681444524}
     - target: {fileID: 7779607641650201017, guid: affc83bf4ed2ce745820c2b45691a0c2, type: 3}
       propertyPath: m_RootOrder
       value: 0
