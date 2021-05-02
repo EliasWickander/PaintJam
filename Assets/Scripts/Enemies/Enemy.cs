@@ -134,6 +134,7 @@ public abstract class Enemy : MonoBehaviour
             Diedsfx();
             Destroy(gameObject);
         }
+
     }
     
     private void OnDrawGizmos()

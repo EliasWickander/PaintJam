@@ -34,6 +34,12 @@ public class PlayerController : MonoBehaviour
     private float rotX;
     private float rotY;
 
+
+    //animation/sounds
+    AudioSource AS;
+    [SerializeField] AudioClip Hurt, Die;
+    [SerializeField] Animator Playericon;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -41,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
         playerCombat = GetComponent<PlayerCombat>();
         currentHealth = maxHealth;
+        AS = GetComponent<AudioSource>();
 
         optionsMenu =  GameObject.Find("MenuManager");
 
@@ -115,11 +122,27 @@ public class PlayerController : MonoBehaviour
 
     public void ModifyHealth(float health)
     {
+        if(health<=0)
+        {
+            AS.clip = Hurt;
+            AS.Play();
+        }
         currentHealth += health;
+        if (currentHealth <= maxHealth/2)
+        {
+            Playericon.SetBool("low_hp", true);
+            
+        }
+        if (currentHealth >= maxHealth/2)
+        {
 
+            Playericon.SetBool("low_hp", false);
+        }
         if (currentHealth <= 0)
         {
             Debug.Log("Player died");
+            AS.clip = Die;
+            AS.Play();
         }
         else if (currentHealth >= maxHealth)
         {

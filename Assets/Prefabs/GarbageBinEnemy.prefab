@@ -165,7 +165,7 @@ MonoBehaviour:
   detectionRange: 20
   attackRange: 10
   attackDuration: 2
-  damage: 5
+  damage: 10
   this_anim: {fileID: 538598180858037251}
   walk: {fileID: 8300000, guid: 3eeee0e2ddf290c4ca67925338536ce3, type: 3}
   attack: {fileID: 8300000, guid: 710bab1ee588f5e4c8f0db4850df059b, type: 3}

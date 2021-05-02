@@ -14,6 +14,9 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ammoText;
     [SerializeField] private TextMeshProUGUI totalAmmoText;
 
+
+    
+
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
@@ -28,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
             if (weapon.CurrentAmmo > 0)
             {
                 weapon.Shoot(playerController.camera.transform);
+
             }
         };
         
