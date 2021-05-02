@@ -39,6 +39,12 @@ public class GrenadeLauncher : Weapon
     public override void Reload()
     {
         int ammoDiff = Mathf.Abs(maxAmmoPerChamber - CurrentAmmo);
+        
+        if (ammoDiff == 0 || TotalAmmo == 0)
+        {
+            return;   
+        }
+        
         animator.SetTrigger("reload");
         if (TotalAmmo >= ammoDiff)
         {
