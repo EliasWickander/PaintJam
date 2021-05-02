@@ -11,9 +11,7 @@ public class KetchupGun : Weapon
         {
             return;   
         }
-        
-        Debug.Log("pew pew");
-        
+
         animator.SetTrigger("Fire");
     }
 

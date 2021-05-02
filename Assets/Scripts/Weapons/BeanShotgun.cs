@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BeanShotgun : Weapon
 {
+    [SerializeField] private float impactRadius = 1;
     public override void Shoot(Transform origin)
     {
         this.origin = origin;
@@ -19,7 +20,7 @@ public class BeanShotgun : Weapon
     {
         Debug.Log("pew pew");
 
-        if (Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, range))
+        if (Physics.SphereCast(origin.position, impactRadius, origin.forward, out RaycastHit hit, range))
         {
             Enemy enemy = hit.collider.GetComponentInParent<Enemy>();
 

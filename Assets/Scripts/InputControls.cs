@@ -41,6 +41,30 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwapToKetchupGun"",
+                    ""type"": ""Button"",
+                    ""id"": ""19f00aba-ec74-4db2-b131-6052a8e46efe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwapToBeanShotgun"",
+                    ""type"": ""Button"",
+                    ""id"": ""21ae9603-9902-468b-a10d-6d47783133d7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwapToGrenadeLauncher"",
+                    ""type"": ""Button"",
+                    ""id"": ""8eeb66fe-de29-4462-a1bc-f7a39b7a351c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -120,6 +144,39 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6bd8f985-0fbe-4c48-816b-e216d81b4676"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapToKetchupGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79864bc0-5b24-4398-9765-fdf65c50d592"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapToBeanShotgun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a94c1aa0-e367-43c9-85c3-5f45fdb8bd63"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapToGrenadeLauncher"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -177,6 +234,9 @@ public class @InputControls : IInputActionCollection, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
+        m_Player_SwapToKetchupGun = m_Player.FindAction("SwapToKetchupGun", throwIfNotFound: true);
+        m_Player_SwapToBeanShotgun = m_Player.FindAction("SwapToBeanShotgun", throwIfNotFound: true);
+        m_Player_SwapToGrenadeLauncher = m_Player.FindAction("SwapToGrenadeLauncher", throwIfNotFound: true);
         // System
         m_System = asset.FindActionMap("System", throwIfNotFound: true);
         m_System_ToggleCursor = m_System.FindAction("ToggleCursor", throwIfNotFound: true);
@@ -233,6 +293,9 @@ public class @InputControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Reload;
+    private readonly InputAction m_Player_SwapToKetchupGun;
+    private readonly InputAction m_Player_SwapToBeanShotgun;
+    private readonly InputAction m_Player_SwapToGrenadeLauncher;
     public struct PlayerActions
     {
         private @InputControls m_Wrapper;
@@ -240,6 +303,9 @@ public class @InputControls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
+        public InputAction @SwapToKetchupGun => m_Wrapper.m_Player_SwapToKetchupGun;
+        public InputAction @SwapToBeanShotgun => m_Wrapper.m_Player_SwapToBeanShotgun;
+        public InputAction @SwapToGrenadeLauncher => m_Wrapper.m_Player_SwapToGrenadeLauncher;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +324,15 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Reload.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
+                @SwapToKetchupGun.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapToKetchupGun;
+                @SwapToKetchupGun.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapToKetchupGun;
+                @SwapToKetchupGun.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapToKetchupGun;
+                @SwapToBeanShotgun.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapToBeanShotgun;
+                @SwapToBeanShotgun.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapToBeanShotgun;
+                @SwapToBeanShotgun.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapToBeanShotgun;
+                @SwapToGrenadeLauncher.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapToGrenadeLauncher;
+                @SwapToGrenadeLauncher.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapToGrenadeLauncher;
+                @SwapToGrenadeLauncher.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapToGrenadeLauncher;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -271,6 +346,15 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
+                @SwapToKetchupGun.started += instance.OnSwapToKetchupGun;
+                @SwapToKetchupGun.performed += instance.OnSwapToKetchupGun;
+                @SwapToKetchupGun.canceled += instance.OnSwapToKetchupGun;
+                @SwapToBeanShotgun.started += instance.OnSwapToBeanShotgun;
+                @SwapToBeanShotgun.performed += instance.OnSwapToBeanShotgun;
+                @SwapToBeanShotgun.canceled += instance.OnSwapToBeanShotgun;
+                @SwapToGrenadeLauncher.started += instance.OnSwapToGrenadeLauncher;
+                @SwapToGrenadeLauncher.performed += instance.OnSwapToGrenadeLauncher;
+                @SwapToGrenadeLauncher.canceled += instance.OnSwapToGrenadeLauncher;
             }
         }
     }
@@ -321,6 +405,9 @@ public class @InputControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnSwapToKetchupGun(InputAction.CallbackContext context);
+        void OnSwapToBeanShotgun(InputAction.CallbackContext context);
+        void OnSwapToGrenadeLauncher(InputAction.CallbackContext context);
     }
     public interface ISystemActions
     {

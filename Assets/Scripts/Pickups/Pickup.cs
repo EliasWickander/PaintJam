@@ -19,12 +19,12 @@ public abstract class Pickup : MonoBehaviour
 
         if (colliderHits.Length > 0)
         {
-            Activate();
-            Destroy(gameObject);
+            if(Activate())
+                Destroy(gameObject);
         }
     }
 
-    protected abstract void Activate();
+    protected abstract bool Activate();
 
     private void OnDrawGizmos()
     {

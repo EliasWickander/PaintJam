@@ -15,6 +15,8 @@ public class Enemy_Milk : Enemy
     {
         this_anim.SetTrigger("Attack");
         
+        
+        
     }
     public void Dmg_milk()
     {

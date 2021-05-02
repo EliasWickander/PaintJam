@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public PlayerCombat playerCombat;
     
-    [SerializeField] private float maxHealth;
-    private float currentHealth;
-    
+    public float maxHealth;
+    public float CurrentHealth { get; set; }
+
     [Header("Movement")]
     [SerializeField] private float acceleration;
     [SerializeField] private float moveSpeed;
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         camera = GetComponentInChildren<Camera>();
 
         playerCombat = GetComponent<PlayerCombat>();
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
 
         optionsMenu =  GameObject.Find("MenuManager");
 
@@ -115,15 +115,17 @@ public class PlayerController : MonoBehaviour
 
     public void ModifyHealth(float health)
     {
-        currentHealth += health;
+        CurrentHealth += health;
 
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             Debug.Log("Player died");
         }
-        else if (currentHealth >= maxHealth)
+        else if (CurrentHealth >= maxHealth)
         {
-            currentHealth = maxHealth;
+            CurrentHealth = maxHealth;
         }
+        
+        Debug.Log("Got " + health + " health. Now has " + CurrentHealth + " Health.");
     }
 }

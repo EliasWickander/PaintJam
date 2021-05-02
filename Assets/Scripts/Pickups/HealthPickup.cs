@@ -6,8 +6,18 @@ public class HealthPickup : Pickup
 {
     [SerializeField] private float healthToGive;
     
-    protected override void Activate()
+    protected override bool Activate()
     {
-        player.ModifyHealth(healthToGive);
+        float healthDiff = player.maxHealth - player.CurrentHealth;
+
+        if (healthDiff == 0)
+            return false;
+        
+        if(healthToGive > healthDiff)
+            player.ModifyHealth(healthDiff);
+        else
+            player.ModifyHealth(healthToGive);
+
+        return true;
     }
 }

@@ -28,6 +28,30 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SwapToKetchupGun",
+                    "type": "Button",
+                    "id": "19f00aba-ec74-4db2-b131-6052a8e46efe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SwapToBeanShotgun",
+                    "type": "Button",
+                    "id": "21ae9603-9902-468b-a10d-6d47783133d7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SwapToGrenadeLauncher",
+                    "type": "Button",
+                    "id": "8eeb66fe-de29-4462-a1bc-f7a39b7a351c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -105,6 +129,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6bd8f985-0fbe-4c48-816b-e216d81b4676",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwapToKetchupGun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79864bc0-5b24-4398-9765-fdf65c50d592",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwapToBeanShotgun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a94c1aa0-e367-43c9-85c3-5f45fdb8bd63",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwapToGrenadeLauncher",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

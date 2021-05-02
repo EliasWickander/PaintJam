@@ -101,18 +101,15 @@ public abstract class Enemy : MonoBehaviour
         if (detectedColliders.Length > 0)
         {
             target = detectedColliders[0].transform;
-            Debug.Log("Detected!");
         }
         else
         {
             if (target != null)
             {
-                Debug.Log("Lost target!");
                 target = null;
             }
             else
             {
-                Debug.Log("No target");
             }
         }
     }
@@ -121,11 +118,13 @@ public abstract class Enemy : MonoBehaviour
     {
         currentHealth += health;
 
-        Debug.Log(health + " health. Has " + currentHealth + " remaining.");
-        
         if (currentHealth <= 0)
         {
-            Debug.Log("died");
+            Debug.Log("enemy died");
+
+            if (SpawnDirector.Instance)
+                SpawnDirector.Instance.activeWave.UnitsAlive--;
+            
             Destroy(gameObject);
         }
     }
