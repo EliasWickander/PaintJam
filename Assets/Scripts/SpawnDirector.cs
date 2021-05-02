@@ -24,9 +24,10 @@ public class SpawnDirector : MonoBehaviour
     private Dictionary<Enemy, EnemyData> enemyDataPair = new Dictionary<Enemy, EnemyData>();
 
     public Wave activeWave;
+    private Room activeRoom;
 
-    private Coroutine roomFinishedCoroutine;
-    
+    private bool waveActive = false;
+
 
     private void Awake()
     {
@@ -43,6 +44,20 @@ public class SpawnDirector : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (activeRoom.waveQueue.Count <= 0)
+        {
+            if (waveActive)
+            {
+                if (activeWave.UnitsAlive <= 0)
+                {
+                    activeRoom.RoomFinished();
+                }      
+            }
+        }
+    }
+
     private void PrepareRoom(Room room)
     {
         if (!active)
@@ -52,6 +67,7 @@ public class SpawnDirector : MonoBehaviour
             return;
         
         activeWave = room.waveQueue.Dequeue();
+        activeRoom = room;
 
         if (activeWave.enemies.Count <= 0)
             throw new Exception("Wave has no enemies. Aborting.");
@@ -72,20 +88,11 @@ public class SpawnDirector : MonoBehaviour
         StartCoroutine(SpawnEnemies(room, enemyWave));
     }
 
-    private IEnumerator CheckForRoomFinished(Room room)
-    {
-        while (activeWave.UnitsAlive > 0)
-        {
-            yield return new WaitForEndOfFrame();
-        }
-        
-        room.RoomFinished();
-    }
-    
     private IEnumerator SpawnEnemies(Room room, Queue<Enemy> wave)
     {
         float spawnRate = activeWave.spawnDuration / wave.Count;
-        
+
+        waveActive = false;
         while (wave.Count > 0)
         {
             yield return new WaitForSeconds(spawnRate);
@@ -96,16 +103,20 @@ public class SpawnDirector : MonoBehaviour
             activeWave.UnitsAlive++;
         }
 
+        waveActive = true;
+
         if (room.waveQueue.Count <= 0)
         {
             room.OnRoomEnter -= PrepareRoom;
         }
         else
         {
-            yield return new WaitForSeconds(1);
+            while (activeWave.UnitsAlive > 0)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            
             PrepareRoom(room);   
         }
-        
-        roomFinishedCoroutine = StartCoroutine(CheckForRoomFinished(room));
     }
 }

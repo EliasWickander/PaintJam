@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     
     private bool cursorLocked = false;
 
+    [SerializeField] private TextMeshProUGUI scoreText;
+    public int Score { get; set; }
+
     private void Awake()
     {
         Instance = this;
@@ -18,6 +22,8 @@ public class GameManager : MonoBehaviour
         InputControls = new InputControls();
         
         InputControls.Enable();
+        
+        ToggleCursor();
     }
 
     private void Start()
@@ -25,8 +31,12 @@ public class GameManager : MonoBehaviour
         InputControls.SystemActions systemActions = InputControls.System;
 
         systemActions.ToggleCursor.performed += context => ToggleCursor();
-        
-        ToggleCursor();
+
+    }
+
+    private void Update()
+    {
+        scoreText.text = Score.ToString();
     }
 
     private void ToggleCursor()

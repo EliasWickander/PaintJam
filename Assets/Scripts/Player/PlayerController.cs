@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
@@ -34,8 +35,10 @@ public class PlayerController : MonoBehaviour
     private float rotX;
     private float rotY;
 
+    [Header("UI elements")]
+    [SerializeField] private TextMeshProUGUI healthText;
 
-    //animation/sounds
+    [Header("Animation/Sound")]
     AudioSource AS;
     [SerializeField] AudioClip Hurt, Die;
     [SerializeField] Animator Playericon;
@@ -83,6 +86,8 @@ public class PlayerController : MonoBehaviour
         movementDir = new Vector3(moveAxis.x, 0, moveAxis.y).normalized;
 
         movementDir = transform.TransformDirection(movementDir);
+
+        healthText.text = "Health \n" + CurrentHealth;
 
     }
 

@@ -8,10 +8,10 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class Wave
 {
-    public List<Enemy> enemies = new List<Enemy>();
     public int spawnCredits = 10;
     public float spawnDuration = 5;
     
+    public List<Enemy> enemies = new List<Enemy>();
     public int UnitsAlive { get; set; }
 }
 
