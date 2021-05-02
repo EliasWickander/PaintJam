@@ -553,6 +553,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2046083022, guid: affc83bf4ed2ce745820c2b45691a0c2, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2046083022, guid: affc83bf4ed2ce745820c2b45691a0c2, type: 3}
       propertyPath: rooms.Array.data[0]
       value: 
       objectReference: {fileID: 858543293}
@@ -701,6 +705,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5377633026120109247, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -124.6001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5454220247505824478, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451182002006950885, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854118952513518160, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2ba26d57a6d9354f87bb6ce586bd9b6, type: 3}
 --- !u!1001 &3844525397702741072
@@ -778,6 +798,10 @@ PrefabInstance:
       propertyPath: grenadeLauncher
       value: 
       objectReference: {fileID: 1786569465}
+    - target: {fileID: 9219502688535833471, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
+      propertyPath: turnRate
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 9219502688535833471, guid: 05ba7f8eb8b8c2c448e008c46897f6eb, type: 3}
       propertyPath: Playericon
       value: 
