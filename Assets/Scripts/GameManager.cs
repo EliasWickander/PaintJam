@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     
     private bool cursorLocked = false;
 
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI scoreText, scoreText2;
     [SerializeField] private TextMeshProUGUI waveText;
     public int Score { get; set; }
     public int CurrentWave { get; set; }
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         scoreText.text = Score.ToString();
+        scoreText2.text = Score.ToString();
         waveText.text = "Wave " + CurrentWave;
     }
 
