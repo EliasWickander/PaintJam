@@ -162,10 +162,11 @@ MonoBehaviour:
   acceleration: 10
   deAcceleration: 10
   movementSpeed: 5
-  detectionRange: 20
+  detectionRange: 25
   attackRange: 10
   attackDuration: 2
   damage: 10
+  score: 5
   this_anim: {fileID: 8798841432489884900}
   walk: {fileID: 8300000, guid: 03c308ca4ca247544b445b446dbd8e1c, type: 3}
   attack: {fileID: 8300000, guid: ce24a0f53d0efcf4eb99a5ee6cff8ae8, type: 3}

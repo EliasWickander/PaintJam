@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 943054463230553829, guid: bdbf9bf01c754644faba6bd47382b449, type: 3}
+      propertyPath: ammoToGive
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 7411136186096774497, guid: bdbf9bf01c754644faba6bd47382b449, type: 3}
       propertyPath: m_Name
-      value: AmmoPickup
+      value: KetchupAmmoPickup
       objectReference: {fileID: 0}
     - target: {fileID: 7411136186096774508, guid: bdbf9bf01c754644faba6bd47382b449, type: 3}
       propertyPath: m_RootOrder

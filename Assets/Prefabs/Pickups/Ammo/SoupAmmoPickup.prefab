@@ -16,6 +16,10 @@ PrefabInstance:
       value: SoupAmmoT
       objectReference: {fileID: 0}
     - target: {fileID: 943054463230553829, guid: bdbf9bf01c754644faba6bd47382b449, type: 3}
+      propertyPath: ammoToGive
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 943054463230553829, guid: bdbf9bf01c754644faba6bd47382b449, type: 3}
       propertyPath: weaponType
       value: 2
       objectReference: {fileID: 0}
