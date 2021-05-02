@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEditor;
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -71,6 +69,7 @@ public class Menu : MonoBehaviour
             if (optionsOn)
             {
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 optionsMenu.SetActive(false);
                 Time.timeScale = 1;
             }
@@ -78,6 +77,7 @@ public class Menu : MonoBehaviour
             else
             {
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 optionsMenu.SetActive(true);
                 Time.timeScale = 0;
             }
@@ -114,7 +114,7 @@ public class Menu : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
             PlayerController pcScript = player.GetComponent<PlayerController>();
 
-            pcScript.turnRate = sense + 50;
+            pcScript.turnRate = sense + 150;
             Debug.Log(sense);
 
         }
