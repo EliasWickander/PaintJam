@@ -42,7 +42,7 @@ public class BeanShotgun : Weapon
     public override void Reload()
     {
         int ammoDiff = Mathf.Abs(maxAmmoPerChamber - CurrentAmmo);
-
+        animator.SetTrigger("reload");
         if (TotalAmmo >= ammoDiff)
         {
             CurrentAmmo += ammoDiff;
